@@ -6,7 +6,16 @@ var MessagesView = {
   },
 
   render: function(data) {
-    this.$chats.append(MessageView.render(data));
+    for (var i = 0; i < data.length; i++) {
+      var currentMsg = data[i];
+      if (currentMsg.username && currentMsg.text) {
+        this.$chats.append(MessageView.render(currentMsg));
+      }
+    }
+  },
+
+  renderMessage: function(data) {
+    this.$chats.prepend(MessageView.render(data));
   }
 
 };
