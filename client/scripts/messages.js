@@ -12,7 +12,18 @@ var Messages = {
 
   update: function (data) {
     this.messages = data.results;
-    MessagesView.render(this.messages);
+
+    // Loop through messages
+    // Call MessagesView.renderMessage
+    // Check if roomname exists
+    // call Rooms.addRooms(roomname)
+    for (var i = this.messages.length - 1; i >= 0; i--) {
+      var currentMsg = this.messages[i];
+      MessagesView.renderMessage(currentMsg);
+      if (currentMsg.roomname !== undefined) {
+        Rooms.addRooms(currentMsg.roomname);
+      }
+    }
   },
 
   newMessage: function () {

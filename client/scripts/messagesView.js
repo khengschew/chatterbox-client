@@ -10,19 +10,21 @@ var MessagesView = {
     this.$chats.html('');
   },
 
-  render: function(data) {
-    this.clearMessages();
+  // render: function(data) {
+  //   this.clearMessages();
 
-    for (var i = 0; i < data.length; i++) {
-      var currentMsg = data[i];
-      if (currentMsg.username && currentMsg.text) {
-        this.$chats.append(MessageView.render(currentMsg));
-      }
-    }
-  },
+  //   for (var i = data.length - 1; i >= 0; i--) {
+  //     var currentMsg = data[i];
+  //     if (currentMsg.username && currentMsg.text) {
+  //       this.renderMessage(currentMsg);
+  //     }
+  //   }
+  // },
 
   renderMessage: function(data) {
-    this.$chats.prepend(MessageView.render(data));
+    if (data.username && data.text) {
+      this.$chats.prepend(MessageView.render(data));
+    }
   }
 
 };
