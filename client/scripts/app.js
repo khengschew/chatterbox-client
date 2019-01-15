@@ -15,10 +15,11 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-    // setInterval((function() {
-    //   this.startSpinner();
-    //   this.fetch(this.stopSpinner);
-    // }).bind(this), 5000);
+
+    setInterval(() => {
+      this.startSpinner();
+      this.fetch(this.stopSpinner);
+    }, 5000);
   },
 
   fetch: function(callback = ()=>{}) {
