@@ -2,12 +2,15 @@ var Messages = {
 
   messages: [],  
 
-  initialize: function (data) {
+  initialize: function () {
     // loop through the data
     // we want to get the username and data
     // send it to MessageView.render
     // converts the data JSON into HTML
     // append the message HTML to MessagesView.$chats in MessagesView.render
+  },
+
+  update: function (data) {
     this.messages = data.results;
     MessagesView.render(this.messages);
   },

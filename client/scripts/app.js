@@ -10,11 +10,15 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    Messages.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
+    // setInterval((function() {
+    //   this.startSpinner();
+    //   this.fetch(this.stopSpinner);
+    // }).bind(this), 5000);
   },
 
   fetch: function(callback = ()=>{}) {
@@ -24,7 +28,7 @@ var App = {
       // Output: none
       // Side effect: display messages
 
-      Messages.initialize(data);
+      Messages.update(data);
       // console.log(data);
       callback();
     });
