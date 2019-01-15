@@ -17,6 +17,8 @@ var Messages = {
     // Call MessagesView.renderMessage
     // Check if roomname exists
     // call Rooms.addRooms(roomname)
+    MessagesView.clearMessages();
+
     for (var i = this.messages.length - 1; i >= 0; i--) {
       var currentMsg = this.messages[i];
       MessagesView.renderMessage(currentMsg);

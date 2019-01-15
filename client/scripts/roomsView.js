@@ -4,16 +4,13 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
+    this.$button.on("click", function() {
+      var roomname = prompt("Please enter your roomname", "lobby");
+      if (roomname != null) {
+        Rooms.addRooms(roomname);
+      }
+    });
   },
-
-  // render: function(rooms) {
-  //   // Loop through all rooms
-  //   // Call render room for each
-  //   for (var i = rooms.length - 1; i >= 0; i--) {
-  //     var currentRoom = rooms[i];
-  //     this.renderRoom(currentRoom);
-  //   }
-  // },
 
   dropdown: _.template(`
     <option value="<%- roomname %>">
