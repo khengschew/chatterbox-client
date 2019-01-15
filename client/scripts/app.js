@@ -19,9 +19,13 @@ var App = {
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
-      // examine the response from the server request:
-      console.log(data);
+      // Edge case: data is empty - to be handled later!
+      // Input: messages data
+      // Output: none
+      // Side effect: display messages
 
+      Messages.initialize(data);
+      // console.log(data);
       callback();
     });
   },
@@ -36,3 +40,4 @@ var App = {
     FormView.setStatus(false);
   }
 };
+
