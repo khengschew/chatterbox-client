@@ -10,20 +10,14 @@ var MessagesView = {
     this.$chats.html('');
   },
 
-  // render: function(data) {
-  //   this.clearMessages();
-
-  //   for (var i = data.length - 1; i >= 0; i--) {
-  //     var currentMsg = data[i];
-  //     if (currentMsg.username && currentMsg.text) {
-  //       this.renderMessage(currentMsg);
-  //     }
-  //   }
-  // },
-
   renderMessage: function(data) {
-    if (data.username && data.text) {
-      this.$chats.prepend(MessageView.render(data));
+    if (data.username !== undefined && data.text !== undefined) {
+      var msgToAdd = $(MessageView.render(data));
+      this.$chats.prepend(msgToAdd);
+
+      $('.username', msgToAdd).click(function() {
+        Friends.toggleStatus($(this).html());
+      });
     }
   }
 

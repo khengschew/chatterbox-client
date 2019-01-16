@@ -30,6 +30,7 @@ var App = {
       // Side effect: display messages
 
       Messages.update(data);
+      Rooms.update(data);
       // console.log(data);
       callback();
     });
@@ -43,6 +44,14 @@ var App = {
   stopSpinner: function() {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
+  },
+
+  getRoom: function() {
+    return Rooms.getRoom();
+  },
+
+  update: function() {
+    Messages.update();
   }
 };
 

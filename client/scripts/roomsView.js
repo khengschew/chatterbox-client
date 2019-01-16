@@ -7,8 +7,12 @@ var RoomsView = {
     this.$button.on("click", function() {
       var roomname = prompt("Please enter your roomname", "lobby");
       if (roomname != null) {
-        Rooms.addRooms(roomname);
+        Rooms.add(roomname);
       }
+    });
+
+    this.$select.change(function() {
+      Rooms.updateSelected($('select option:selected').val());
     });
   },
 

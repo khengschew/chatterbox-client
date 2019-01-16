@@ -11,19 +11,24 @@ var Messages = {
   },
 
   update: function (data) {
-    this.messages = data.results;
+    if (data) {
+      this.messages = data.results;
+    }
 
     // Loop through messages
     // Call MessagesView.renderMessage
     // Check if roomname exists
-    // call Rooms.addRooms(roomname)
+    // call Rooms.add(roomname)
     MessagesView.clearMessages();
 
+    var currentRoom = App.getRoom();
     for (var i = this.messages.length - 1; i >= 0; i--) {
       var currentMsg = this.messages[i];
-      MessagesView.renderMessage(currentMsg);
-      if (currentMsg.roomname !== undefined) {
-        Rooms.addRooms(currentMsg.roomname);
+
+      if (currentRoom === null) {
+        MessagesView.renderMessage(currentMsg);
+      } else if (currentMsg.roomname === currentRoom) {
+        MessagesView.renderMessage(currentMsg);
       }
     }
   },
@@ -32,7 +37,7 @@ var Messages = {
     var message = {
       username: App.username,
       text: $('input#message').val(),
-      roomname: 'room'
+      roomname: App.getRoom()
     };
 
     this.messages.push(message);
