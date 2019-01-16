@@ -25,10 +25,12 @@ var Messages = {
     for (var i = this.messages.length - 1; i >= 0; i--) {
       var currentMsg = this.messages[i];
 
+      var isFriend = App.checkFriendship(currentMsg.username);
+
       if (currentRoom === null) {
-        MessagesView.renderMessage(currentMsg);
+        MessagesView.renderMessage(currentMsg, isFriend);
       } else if (currentMsg.roomname === currentRoom) {
-        MessagesView.renderMessage(currentMsg);
+        MessagesView.renderMessage(currentMsg, isFriend);
       }
     }
   },

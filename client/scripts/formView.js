@@ -10,7 +10,6 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
     
-    // Parse.create();
     Messages.newMessage();
 
   },

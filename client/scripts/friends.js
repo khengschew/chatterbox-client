@@ -8,7 +8,10 @@ var Friends = {
     } else {
       this.friends[friend] = true;
     }
-    console.log(this.friends);
+  },
+
+  checkFriendship: function(username) {
+    return this.friends[username] ? true : false;
   }
 
 };

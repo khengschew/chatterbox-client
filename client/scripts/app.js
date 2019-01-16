@@ -31,7 +31,6 @@ var App = {
 
       Messages.update(data);
       Rooms.update(data);
-      // console.log(data);
       callback();
     });
   },
@@ -52,6 +51,10 @@ var App = {
 
   update: function() {
     Messages.update();
+  },
+
+  checkFriendship: function(username) {
+    return Friends.checkFriendship(username);
   }
 };
 
