@@ -28,7 +28,7 @@ var App = {
       // Input: messages data
       // Output: none
       // Side effect: display messages
-
+      console.log(data);
       Messages.update(data);
       Rooms.update(data);
       callback();

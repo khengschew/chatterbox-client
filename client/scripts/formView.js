@@ -11,7 +11,7 @@ var FormView = {
     event.preventDefault();
     
     Messages.newMessage();
-
+    $('form').find('#message').val('');
   },
 
   setStatus: function(active) {
